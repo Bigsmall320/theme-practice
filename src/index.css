@@ -1,0 +1,84 @@
+@import 'tailwindcss';
+
+/*
+  THEME CONTROL — ONE PLACE.
+  Every color in the app is a semantic token below. Components never hardcode
+  colors (no bg-green-600, no bg-neutral-900) — they use the tokens
+  (bg-primary, bg-surface, text-foreground, …). To restyle the whole app,
+  change these values. To flip light/dark, toggle the `.dark` class on <html>.
+*/
+
+/* Enables class-based dark mode: `dark:` utilities apply inside a `.dark` element. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* LIGHT MODE (default) — the raw values live here. */
+:root {
+  --bg: #f7f8f7; /* app background */
+  --surface: #ffffff; /* cards, sidebar, header */
+  --surface-2: #f1f3f1; /* inputs, hover states */
+  --border: #e4e7e4; /* hairlines */
+  --fg: #14181a; /* primary text */
+  --muted: #6b7280; /* secondary text */
+
+  /* Brand — GREEN. Kept identical in dark mode so the accent is consistent. */
+  --primary: #16a34a; /* green-600 */
+  --primary-hover: #15803d; /* green-700 */
+  --primary-fg: #ffffff; /* text/icons on a primary surface */
+  --primary-soft: #dcfce7; /* tinted chip/avatar background */
+  --primary-soft-fg: #15803d; /* text on the tint */
+}
+
+/* DARK MODE — only the greys change. NEUTRAL dark grey, no navy/blue. */
+.dark {
+  --bg: #0c0c0d; /* near-black neutral */
+  --surface: #17181a; /* dark grey panels */
+  --surface-2: #232427; /* raised/inputs/hover */
+  --border: #2c2e31; /* subtle grey hairlines */
+  --fg: #f3f4f4; /* light text */
+  --muted: #9ca0a6; /* muted grey text */
+
+  --primary: #16a34a; /* same green */
+  --primary-hover: #22c55e; /* green-500 — brighter on dark */
+  --primary-fg: #ffffff;
+  --primary-soft: #14321f; /* deep green tint */
+  --primary-soft-fg: #4ade80; /* green-400 text on the tint */
+}
+
+/*
+  Expose the tokens to Tailwind as color utilities.
+  `inline` makes utilities emit `var(--…)` directly, so they react to the
+  `.dark` class at runtime. This is what generates bg-surface, text-foreground,
+  border-border, bg-primary, etc.
+*/
+@theme inline {
+  --color-background: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-foreground: var(--fg);
+  --color-muted: var(--muted);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-fg);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-foreground: var(--primary-soft-fg);
+}
+
+/* App-wide base styles. */
+html,
+body,
+#root {
+  height: 100%;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
