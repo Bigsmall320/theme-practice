@@ -10,9 +10,9 @@ export default function Sidebar() {
       {/* Brand */}
       <div className="flex h-16 items-center gap-2 px-6">
         <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary font-bold text-primary-foreground">
-          R
+          S
         </span>
-        <span className="text-lg font-semibold text-foreground">RentalFlow</span>
+        <span className="text-lg font-semibold text-foreground">Student Portal</span>
       </div>
 
       {/* Nav links */}
@@ -39,7 +39,7 @@ export default function Sidebar() {
 
       {/* Footer */}
       <div className="border-t border-border px-6 py-4 text-xs text-muted">
-        RentalFlow · v0.1.0
+        Student Portal · v0.1.0
       </div>
     </aside>
   )

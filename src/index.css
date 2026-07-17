@@ -3,53 +3,47 @@
 /*
   THEME CONTROL — ONE PLACE.
   Every color in the app is a semantic token below. Components never hardcode
-  colors (no bg-green-600, no bg-neutral-900) — they use the tokens
-  (bg-primary, bg-surface, text-foreground, …). To restyle the whole app,
-  change these values. To flip light/dark, toggle the `.dark` class on <html>.
+  colors (no bg-orange-500, no text-orange-600) — they use the tokens.
 */
 
-/* Enables class-based dark mode: `dark:` utilities apply inside a `.dark` element. */
+/* Enables class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* LIGHT MODE (default) — the raw values live here. */
+/* LIGHT MODE */
 :root {
-  --bg: #f7f8f7; /* app background */
-  --surface: #ffffff; /* cards, sidebar, header */
-  --surface-2: #f1f3f1; /* inputs, hover states */
-  --border: #e4e7e4; /* hairlines */
-  --fg: #14181a; /* primary text */
-  --muted: #6b7280; /* secondary text */
+  --bg: #f7f8f7;
+  --surface: #ffffff;
+  --surface-2: #f1f3f1;
+  --border: #e4e7e4;
+  --fg: #14181a;
+  --muted: #6b7280;
 
-  /* Brand — GREEN. Kept identical in dark mode so the accent is consistent. */
-  --primary: #16a34a; /* green-600 */
-  --primary-hover: #15803d; /* green-700 */
-  --primary-fg: #ffffff; /* text/icons on a primary surface */
-  --primary-soft: #dcfce7; /* tinted chip/avatar background */
-  --primary-soft-fg: #15803d; /* text on the tint */
-}
-
-/* DARK MODE — only the greys change. NEUTRAL dark grey, no navy/blue. */
-.dark {
-  --bg: #0c0c0d; /* near-black neutral */
-  --surface: #17181a; /* dark grey panels */
-  --surface-2: #232427; /* raised/inputs/hover */
-  --border: #2c2e31; /* subtle grey hairlines */
-  --fg: #f3f4f4; /* light text */
-  --muted: #9ca0a6; /* muted grey text */
-
-  --primary: #16a34a; /* same green */
-  --primary-hover: #22c55e; /* green-500 — brighter on dark */
+  /* Brand — ROMANTIC ORANGE */
+  --primary: #ff8c42;
+  --primary-hover: #ff7a26;
   --primary-fg: #ffffff;
-  --primary-soft: #14321f; /* deep green tint */
-  --primary-soft-fg: #4ade80; /* green-400 text on the tint */
+  --primary-soft: #fff1e6;
+  --primary-soft-fg: #c25b12;
 }
 
-/*
-  Expose the tokens to Tailwind as color utilities.
-  `inline` makes utilities emit `var(--…)` directly, so they react to the
-  `.dark` class at runtime. This is what generates bg-surface, text-foreground,
-  border-border, bg-primary, etc.
-*/
+/* DARK MODE */
+.dark {
+  --bg: #0c0c0d;
+  --surface: #17181a;
+  --surface-2: #232427;
+  --border: #2c2e31;
+  --fg: #f3f4f4;
+  --muted: #9ca0a6;
+
+  /* Same Romantic Orange */
+  --primary: #ff8c42;
+  --primary-hover: #ffa15e;
+  --primary-fg: #ffffff;
+  --primary-soft: #3a2414;
+  --primary-soft-fg: #ffb784;
+}
+
+/* Expose the tokens to Tailwind */
 @theme inline {
   --color-background: var(--bg);
   --color-surface: var(--surface);
@@ -65,7 +59,7 @@
   --color-primary-soft-foreground: var(--primary-soft-fg);
 }
 
-/* App-wide base styles. */
+/* Base styles */
 html,
 body,
 #root {

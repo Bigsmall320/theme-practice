@@ -11,11 +11,11 @@ export default function Header() {
       <div className="flex items-center gap-3 pl-4">
         <ThemeToggle />
         <div className="hidden text-right sm:block">
-          <p className="text-sm font-medium text-foreground">Property Manager</p>
-          <p className="text-xs text-muted">Admin</p>
+          <p className="text-sm font-medium text-foreground">Rai Salim</p>
+          <p className="text-xs text-muted">Student</p>
         </div>
         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-soft text-sm font-semibold text-primary-soft-foreground">
-          PM
+          RS
         </span>
       </div>
     </header>
